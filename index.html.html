@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HN Landscaper & Tree Services LLC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- DISEÑO PARA CELULARES (NO AFECTA A LA PC) --- */
+.menu-toggle {
+    display: none; /* Invisible en PC */
+    font-size: 1.8rem;
+    color: #f1c40f;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: block; /* Aparece solo en celular */
+    }
+
+    .nav-links {
+        display: none; /* Se guarda en celular para no estorbar */
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a1a;
+        padding: 20px 0;
+        border-bottom: 2px solid #f1c40f;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex; /* Se abre solo al tocar las rayitas */
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+}
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0; padding: 0;
+            background-color: #121212; color: #ffffff;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        nav {
+            background-color: #1a1a1a;
+            padding: 10px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 3px solid #f1c40f;
+        }
+        .logo-container { display: flex; align-items: center; }
+        .logo-img { height: 65px; width: auto; }
+
+        .nav-links { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+        .nav-links a { color: white; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
+        .nav-links a:hover { color: #f1c40f; }
+
+        /* Esquina Derecha: Contacto Destacado */
+        .header-contact-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 5px;
+        }
+        .phone-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .phone-link i { color: #f1c40f; margin-right: 8px; }
+        
+        .estimate-badge {
+            background-color: #f1c40f;
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: 900;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .estimate-badge:hover { background-color: #ffffff; transform: scale(1.05); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('FONDO.jpg');
+            background-size: cover; background-position: center;
+            display: flex; justify-content: center; align-items: center; text-align: center;
+        }
+        .hero-box { border: 4px solid #ffffff; padding: 30px; background-color: rgba(0,0,0,0.4); }
+        .hero h1 { font-size: 2.5rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- SECTIONS --- */
+        section { padding: 60px 10%; }
+        h2.section-title { text-align: center; color: #f1c40f; text-transform: uppercase; margin-bottom: 40px; font-size: 2rem; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: #1a1a1a; padding: 30px; border-radius: 8px; text-align: center; border: 1px solid #333; transition: 0.3s; }
+        .card:hover { border-color: #f1c40f; }
+        .card i { font-size: 3rem; color: #f1c40f; margin-bottom: 15px; }
+
+        /* --- CONTACT FORM --- */
+        .container-contact { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; }
+        .estimate-form { background: white; color: #333; padding: 30px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .submit-btn { background: #f1c40f; color: black; border: none; padding: 18px; font-weight: bold; width: 100%; cursor: pointer; text-transform: uppercase; font-size: 1rem; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .container-contact { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.8rem; }
+        }
+
+        footer { background: #000; text-align: center; padding: 40px; border-top: 1px solid #333; }
+    </style>
+</head>
+<body>
+
+    <nav>
+    <div class="logo-container">
+        <img src="LOGO HM.png" alt="Logo" class="logo-img">
+    </div>
+    
+    <!-- Este es el botón de las 3 rayitas que aparecerá en el celular -->
+    <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <ul class="nav-links" id="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#areas">Areas</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="header-contact-box">
+        <a href="tel:8647175923" class="phone-link"><i class="fas fa-phone-alt"></i> (864) 717-5923</a>
+        <a href="tel:8647175923" class="estimate-badge">Free Estimate</a>
+    </div>
+</nav>
+
+    <section class="hero" id="home">
+        <div class="hero-box">
+            <h1>RESIDENTIAL & COMMERCIAL</h1>
+            <p style="font-size: 1.2rem; margin-top: 10px; font-style: italic;">Professional Landscaping & Tree Services</p>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-tree"></i>
+                <h3>Tree Services</h3>
+                <p>Tree removal, trimming, pruning, and stump grinding. Professional and safe execution.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-seedling"></i>
+                <h3>Landscaping</h3>
+                <p>Lawn maintenance, pine straw, mulch, flower beds, and seasonal clean-ups.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-tools"></i>
+                <h3>Hardscaping</h3>
+                <p>Retaining walls, patios, pavers, and stone work to transform your outdoor space.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AREAS -->
+    <section id="areas" style="background-color: #1a1a1a;">
+        <h2 class="section-title">Service Areas</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Greenville County</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Spartanburg County</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Cherokee</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Pickens County</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Union County</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>York County</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Chester County</h3>
+            </div>
+        </div> 
+       
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+   <!-- Busca esta sección en tu código y reemplázala -->
+<section id="contact">
+    <h2 class="section-title">Request Your Free Estimate</h2>
+    <div class="container-contact">
+        <div class="estimate-form">
+            <!-- REEMPLAZA "TU_ID_AQUÍ" con el código que te dio Formspree -->
+            <form action="https://formspree.io/f/mjglwgjd" method="POST">
+                
+                <label style="font-weight: bold; display: block; margin-bottom: 5px;">Full Name</label>
+                <input type="text" name="name" placeholder="Ej: John Doe" required>
+                
+                <label style="font-weight: bold; display: block; margin-bottom: 5px;">Phone Number</label>
+                <input type="tel" name="phone" placeholder="(864) 000-0000" required>
+                
+                <label style="font-weight: bold; display: block; margin-bottom: 5px;">Email (Optional)</label>
+                <input type="email" name="_replyto" placeholder="yourname@email.com">
+                
+                <label style="font-weight: bold; display: block; margin-bottom: 5px;">Service Address</label>
+                <input type="text" name="address" placeholder="123 Street Name, Greenville, SC" required>
+                
+                <label style="font-weight: bold; display: block; margin-bottom: 5px;">Service Needed</label>
+                <select name="service">
+                    <option value="Tree Service">Tree Service</option>
+                    <option value="Landscaping">Landscaping</option>
+                    <option value="Hardscaping">Hardscaping / Construction</option>
+                    <option value="Other">Other Service</option>
+                </select>
+                
+                <label style="font-weight: bold; display: block; margin-bottom: 5px;">Job Description</label>
+                <textarea name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                
+                <!-- Este campo es para que el correo te llegue con un asunto claro -->
+                <input type="hidden" name="_subject" value="New Estimate Request - HN Landscaper">
+                
+                <button type="submit" class="submit-btn">Send Request to Gmail</button>
+            </form>
+        </div>
+
+
+
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 8px; border-left: 6px solid #f1c40f;">
+            <h3 style="color:#f1c40f; margin-top:0;">Contact Info</h3>
+            <p style="font-size: 1.2rem;"><strong>Phone:</strong> <br> (864) 717-5923</p>
+            <p><strong>Business Hours:</strong> <br> Mon - Sat: 7:00 AM - 6:00 PM</p>
+            <p><strong>Coverage:</strong> <br> Upstate South Carolina</p>
+            <hr style="border: 0.5px solid #333; margin: 30px 0;">
+            <p style="color: #bbb;"><i class="fas fa-check-circle" style="color:#f1c40f;"></i> Estimate arrives in 24h.</p>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <div style="font-size: 1.4rem; font-weight: bold; color: #f1c40f;">HN Landscaper & Tree Services LLC</div>
+        <p style="color: #777; font-size: 0.9rem; margin-top: 15px;">© 2026 All Rights Reserved | Serving South Carolina</p>
+    </footer>
+
+</body>
+<script>
+    const menuBtn = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-list');
+
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+</script>
+</html>
