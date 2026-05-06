@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -179,6 +179,79 @@
         }
 
         footer { background: #000; text-align: center; padding: 40px; border-top: 1px solid #333; }
+        /* --- ESTILO PARA EL ICONO Y BOTÓN EN PC --- */
+.header-contact-box {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre icono y botón */
+}
+
+.phone-icon-only {
+    color: #f1c40f; 
+    font-size: 1.3rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* --- AJUSTE PARA CELULARES --- */
+@media (max-width: 900px) {
+    nav {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 5px 10px !important;
+    }
+
+    /* 1. Rayitas a la izquierda */
+    .menu-toggle {
+        display: block !important;
+        order: 1 !important;
+    }
+
+    /* 2. Logo al centro */
+    .logo-container {
+        order: 2 !important;
+        margin: 0 auto !important;
+    }
+    .logo-img {
+        height: 40px !important;
+    }
+
+    /* 3. Botón Free Estimate a la derecha */
+    .header-contact-box {
+        order: 3 !important;
+    }
+
+    /* Escondemos el icono solo en el celular para que quepa el botón */
+    .phone-icon-only {
+        display: none !important;
+    }
+
+    .header-contact-box .estimate-badge {
+        display: block !important;
+        padding: 8px 10px !important;
+        font-size: 0.7rem !important;
+        white-space: nowrap;
+    }
+
+    /* Menú desplegable */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a1a;
+        z-index: 1000;
+        padding: 15px 0;
+        border-bottom: 2px solid #f1c40f;
+    }
+    .nav-links.active {
+        display: flex !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -202,8 +275,15 @@
     </ul>
 
     <div class="header-contact-box">
+    <!-- Solo el icono de teléfono que llama al hacer clic -->
+    <a href="tel:8647175923" class="phone-icon-only" title="Call Us">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+    
+    <!-- Botón Free Estimate -->
     <a href="tel:8647175923" class="estimate-badge">Free Estimate</a>
-</div>
+</div> 
+
 </nav>
 
     <section class="hero" id="home">
