@@ -16,57 +16,82 @@
 
 @media (max-width: 900px) {
     nav {
-        display: flex;
-        justify-content: space-between; /* Separa los elementos */
-        align-items: center;
-        padding: 10px 15px;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 5px 10px !important;
     }
 
-    /* 1. La barrita sandwich primero a la izquierda */
+    /* 1. Rayitas a la izquierda */
     .menu-toggle {
-        display: block;
-        order: 1; 
-        font-size: 1.5rem;
+        display: block !important;
+        order: 1 !important;
+        flex: 1;
     }
 
-    /* 2. El logo en el centro */
+    /* 2. Logo al centro */
     .logo-container {
-        order: 2;
+        order: 2 !important;
+        flex: 2;
+        text-align: center;
     }
     .logo-img {
-        height: 50px; /* Un poco más pequeño para que quepa todo */
+        height: 40px !important; /* Lo hacemos un poco más pequeño para el cel */
     }
 
-    /* 3. El número de teléfono a la derecha */
+    /* 3. Botón Free Estimate a la derecha */
     .header-contact-box {
-        display: flex !important; /* Forzamos a que se vea en celular */
-        order: 3;
-    }
-    
-    /* Escondemos el botón amarillo en celular para que no se amontone, 
-       dejando solo el número o el icono de teléfono */
-    .estimate-badge {
-        display: none; 
+        display: flex !important;
+        order: 3 !important;
+        flex: 2;
+        justify-content: flex-end;
     }
 
+    /* Estilo compacto para el botón en el celular */
+    .header-contact-box .estimate-badge {
+        display: block !important;
+        padding: 8px 10px !important;
+        font-size: 0.7rem !important; /* Letra más pequeña para que quepa */
+        white-space: nowrap;
+        background: #f1c40f;
+        color: black;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    /* Escondemos el número escrito para dejar solo el botón */
+    .phone-link {
+        display: none !important;
+    }
+
+    /* Menú desplegable */
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 70px; /* Ajusta según el alto de tu barra */
+        top: 60px;
         left: 0;
         width: 100%;
         background-color: #1a1a1a;
         z-index: 1000;
-        border-bottom: 2px solid #f1c40f;
+        padding: 10px 0;
     }
-
     .nav-links.active {
-        display: flex;
+        display: flex !important;
     }
 }
-    .nav-links li {
-        margin: 15px 0;
+
+/* --- ESTO ASEGURA QUE EN LA PC SE VEA NORMAL --- */
+@media (min-width: 901px) {
+    .header-contact-box .estimate-badge {
+        display: inline-block !important;
+        font-size: 0.9rem !important;
+        padding: 10px 20px !important;
+    }
+    .phone-link {
+        display: inline-block !important;
     }
 }
         html { scroll-behavior: smooth; }
@@ -176,10 +201,8 @@
         <li><a href="#contact">Contact</a></li>
     </ul>
 
-   <div class="header-contact-box">
-    <a href="tel:8647175923" class="phone-link">
-        <i class="fas fa-phone-alt"></i> <!-- Este icono ayuda a que se vea profesional -->
-    </a>
+    <div class="header-contact-box">
+    <a href="tel:8647175923" class="estimate-badge">Free Estimate</a>
 </div>
 </nav>
 
