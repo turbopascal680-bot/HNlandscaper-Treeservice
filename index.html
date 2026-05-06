@@ -15,27 +15,56 @@
 }
 
 @media (max-width: 900px) {
+    nav {
+        display: flex;
+        justify-content: space-between; /* Separa los elementos */
+        align-items: center;
+        padding: 10px 15px;
+    }
+
+    /* 1. La barrita sandwich primero a la izquierda */
     .menu-toggle {
-        display: block; /* Aparece solo en celular */
+        display: block;
+        order: 1; 
+        font-size: 1.5rem;
+    }
+
+    /* 2. El logo en el centro */
+    .logo-container {
+        order: 2;
+    }
+    .logo-img {
+        height: 50px; /* Un poco más pequeño para que quepa todo */
+    }
+
+    /* 3. El número de teléfono a la derecha */
+    .header-contact-box {
+        display: flex !important; /* Forzamos a que se vea en celular */
+        order: 3;
+    }
+    
+    /* Escondemos el botón amarillo en celular para que no se amontone, 
+       dejando solo el número o el icono de teléfono */
+    .estimate-badge {
+        display: none; 
     }
 
     .nav-links {
-        display: none; /* Se guarda en celular para no estorbar */
+        display: none;
         flex-direction: column;
         position: absolute;
-        top: 80px;
+        top: 70px; /* Ajusta según el alto de tu barra */
         left: 0;
         width: 100%;
         background-color: #1a1a1a;
-        padding: 20px 0;
-        border-bottom: 2px solid #f1c40f;
         z-index: 1000;
+        border-bottom: 2px solid #f1c40f;
     }
 
     .nav-links.active {
-        display: flex; /* Se abre solo al tocar las rayitas */
+        display: flex;
     }
-
+}
     .nav-links li {
         margin: 15px 0;
     }
