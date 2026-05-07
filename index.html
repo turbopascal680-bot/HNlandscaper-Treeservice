@@ -6,6 +6,115 @@
     <title>HN Landscaper & Tree Services LLC</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* --- NUEVO DISEÑO PARA CELULAR (Estilo Minimalista USA) --- */
+@media (max-width: 900px) {
+    /* 1. La barra de arriba: Fondo transparente, Logo Izq, Sandwich Der */
+    nav {
+        background-color: transparent !important;
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex !important;
+        justify-content: space-between !important; /* Separa los extremos */
+        align-items: center !important;
+        padding: 15px 20px !important; /* Espacio elegante */
+        z-index: 1000 !important;
+    }
+
+    /* Ocultamos el botón "Free Estimate" y el icono en la barra de arriba en celular */
+    .header-contact-box {
+        display: none !important;
+    }
+
+    /* El Sandwich a la derecha */
+    .menu-toggle {
+        display: block !important;
+        order: 2 !important; /* Pasa al final */
+        color: #ffffff !important; /* Color blanco como el ejemplo */
+        font-size: 1.8rem !important;
+    }
+
+    /* El Logo a la izquierda */
+    .logo-container {
+        order: 1 !important; /* Pasa al principio */
+        margin: 0 !important;
+    }
+    .logo-img {
+        height: 45px !important; /* Tamaño del logo en el ejemplo */
+        filter: brightness(0) invert(1); /* Fuerza el logo a blanco como el ejemplo */
+    }
+
+    /* 2. El texto grande centrado (Home) */
+    .hero {
+        background-size: cover !important;
+        background-position: center center !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding-top: 100px !important; /* Espacio para la barra transparente */
+    }
+
+    .hero-box {
+        background: transparent !important; /* Fondo transparente para que luzca la foto */
+        border: none !important;
+        padding: 0 20px !important;
+    }
+
+    /* El título "HN LANDSCAPER & TREE SERVICES LLC" */
+    .hero-box h1 {
+        color: #ffffff !important;
+        font-size: 2.2rem !important; /* Letra grande y gruesa */
+        text-transform: uppercase !important;
+        margin-bottom: 5px !important;
+        line-height: 1.1 !important;
+    }
+
+    /* El subtítulo de Servicios */
+    .hero-box p:first-of-type {
+        color: #ffffff !important;
+        font-size: 1.1rem !important;
+        font-weight: bold !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.5px !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Párrafo de introducción (más sutil) */
+    .hero-box p:last-of-type {
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+        max-width: 320px !important;
+        margin: 0 auto 25px auto !important;
+    }
+
+    /* 3. El Botón Grande (En verde como el ejemplo) */
+    .hero-box .cta-button {
+        background-color: #8ac007 !important; /* Color verde del ejemplo */
+        color: #ffffff !important;
+        display: block !important;
+        width: 90% !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
+        padding: 15px !important;
+        font-size: 1rem !important;
+        border-radius: 4px !important;
+        text-transform: uppercase !important;
+        font-weight: bold !important;
+    }
+
+    /* Ocultamos las frases de confianza en el celular para un look minimalista */
+    .trust-badges {
+        display: none !important;
+    }
+    
+    /* Menú desplegable */
+    .nav-links {
+        top: 80px !important;
+        background-color: rgba(0,0,0,0.95) !important;
+    }
+}
         /* --- DISEÑO PARA CELULARES (NO AFECTA A LA PC) --- */
 .menu-toggle {
     display: none; /* Invisible en PC */
@@ -287,11 +396,17 @@
 </nav>
 
     <section class="hero" id="home">
-        <div class="hero-box">
-            <h1>RESIDENTIAL & COMMERCIAL</h1>
-            <p style="font-size: 1.2rem; margin-top: 10px; font-style: italic;">Professional Landscaping & Tree Services</p>
-        </div>
-    </section>
+    <div class="hero-box">
+        <h1>HN LANDSCAPER & TREE SERVICES LLC</h1>
+        <p>Residential & Commercial Services</p>
+        
+        <p>We are a locally owned business dedicated to transforming and maintaining your outdoor spaces in the Upstate.</p>
+
+        <a href="tel:8647175923" class="cta-button">
+            Schedule a Free Estimate
+        </a>
+    </div>
+</section>
 
     <!-- SERVICIOS -->
     <section id="services">
