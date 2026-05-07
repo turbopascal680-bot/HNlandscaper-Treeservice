@@ -8,32 +8,35 @@
     <style>
         /* --- NUEVO DISEÑO PARA CELULAR (Estilo Minimalista USA) --- */
 @media (max-width: 900px) {
-    /* 1. La barra de arriba: Fondo transparente, Logo Izq, Sandwich Der */
     nav {
-        background-color: transparent !important;
-        position: absolute !important;
-        top: 0;
-        left: 0;
-        width: 100%;
         display: flex !important;
-        justify-content: space-between !important; /* Separa los extremos */
+        justify-content: space-between !important;
         align-items: center !important;
-        padding: 15px 20px !important; /* Espacio elegante */
-        z-index: 1000 !important;
+        /* Aumentamos el padding para que la barra sea más ancha */
+        padding: 20px 25px !important; 
+        background-color: rgba(0, 0, 0, 0.9) !important; /* Un fondo sólido para que resalte */
+        height: auto !important;
     }
 
-    /* Ocultamos el botón "Free Estimate" y el icono en la barra de arriba en celular */
-    .header-contact-box {
-        display: none !important;
+    /* Hacemos el logo un poco más grande para que llene el espacio */
+    .logo-img {
+        height: 55px !important; 
+        width: auto !important;
     }
 
-    /* El Sandwich a la derecha */
+    /* El sandwich más grande y fácil de tocar */
     .menu-toggle {
         display: block !important;
-        order: 2 !important; /* Pasa al final */
-        color: #ffffff !important; /* Color blanco como el ejemplo */
-        font-size: 1.8rem !important;
+        font-size: 2.2rem !important; 
+        color: #f1c40f !important;
+        cursor: pointer;
     }
+
+    /* Ajustamos la posición del menú desplegable porque ahora la barra es más alta */
+    .nav-links {
+        top: 90px !important; /* Bajamos el menú para que no tape la barra ancha */
+    }
+}
 
     /* El Logo a la izquierda */
     .logo-container {
