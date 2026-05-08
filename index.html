@@ -8,15 +8,35 @@
     <style>
         /* --- NUEVO DISEÑO PARA CELULAR (Estilo Minimalista USA) --- */
 @media (max-width: 900px) {
-    nav {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        /* Aumentamos el padding para que la barra sea más ancha */
-        padding: 20px 25px !important; 
-        background-color: rgba(0, 0, 0, 0.9) !important; /* Un fondo sólido para que resalte */
-        height: auto !important;
+   @media (max-width: 900px) {
+    /* El contenedor del menú */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%; /* Ocupa gran parte de la pantalla */
+        height: 100vh;
+        background-color: #000000 !important; /* Fondo sólido */
+        padding: 100px 40px !important; /* El 40px es el espacio que lo aleja de la orilla */
+        z-index: 2000;
+        text-align: left !important;
     }
+
+    /* Las opciones (Home, Services, etc.) */
+    .nav-links li {
+        margin: 15px 0 !important; /* Espacio entre cada palabra */
+        padding-left: 10px !important; /* Empuja el texto hacia la derecha para que no pegue en el borde */
+        border-left: 3px solid #f1c40f; /* Opcional: una rayita amarilla a la izquierda para estilo */
+    }
+
+    .nav-links li a {
+        font-size: 1.5rem !important;
+        color: #ffffff !important;
+        text-decoration: none;
+    }
+}
 
     /* Hacemos el logo un poco más grande para que llene el espacio */
     .logo-img {
