@@ -597,4 +597,16 @@
         });
     }
 </script>
+    <script>
+    // Esto se ejecuta en cuanto la página termina de cargar
+    window.onload = function() {
+        // Obliga al navegador a subir al inicio (coordenadas 0,0)
+        window.scrollTo(0, 0);
+    };
+
+    // Esto evita que el navegador intente "recordar" la posición anterior
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+</script>
 </html>
